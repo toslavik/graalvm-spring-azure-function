@@ -24,7 +24,7 @@ cp -R META-INF BOOT-INF/classes
 LIBPATH=`find BOOT-INF/lib | tr '\n' ':'`
 CP=BOOT-INF/classes:$LIBPATH
 
-GRAALVM_VERSION=`native-image --version`
+GRAALVM_VERSION=`./gvm/bin/native-image --version`
 echo "Compiling $ARTIFACT with $GRAALVM_VERSION"
 { time native-image \
   --verbose \
