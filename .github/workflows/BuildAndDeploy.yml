@@ -31,12 +31,11 @@ jobs:
               run: |
                 echo 
                 gu install native-image
+                ls -a
+                cd
+                ls -a
             - name: Build native image
               run: |
-                ls -a
-                cd ~
-                cd usr
-                ls -a
                 sudo -s
                 . build.sh
             # - name: Login to Azure
