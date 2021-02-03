@@ -1,17 +1,12 @@
-
-
 name: Build and deploy native image
-
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
-
+      - master
 jobs:
     build-and-deploy:
-      runs-on: ubuntu-20.04
-      steps:
+        runs-on: ubuntu-20.04
+        steps:
             - name: Checkout code
               uses: actions/checkout@v2
             - name: Install GraalVM
@@ -31,16 +26,14 @@ jobs:
               run: |
                 echo 
                 gu install native-image
-                ls -a
-                cd $HOME/work/_temp
-                ls -a
-                cd $HOME
-                ls -a
             - name: Build native image
               run: ./build.sh
+            - name: Login to Azure
+              uses: azure/login@v1.1
+              with:
+                creds: ${{ secrets.AZURE_CREDENTIALS }}
             - name: 'Deploy to Azure Function'
               uses: Azure/functions-action@v1.1.8
               with:
                 app-name: ${{ secrets.AZ_FUNCTION_NAME_APP }}
                 package: target/native_spring_function.zip
-                publish-profile: ${{ secrets.SCM_CREDENTIALS_MCONS }}
