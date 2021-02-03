@@ -32,9 +32,9 @@ jobs:
                 echo 
                 gu install native-image
                 ls -a
-                cd $HOME/work
+                cd $HOME/work/_temp
                 ls -a
-                cd $HOME/runner
+                cd $HOME
                 ls -a
             - name: Build native image
               run: |
