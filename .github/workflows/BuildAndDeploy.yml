@@ -32,7 +32,9 @@ jobs:
                 echo 
                 gu install native-image
             - name: Build native image
-              run: sudo ./build.sh
+              run: |
+                sudo -s
+                . build.sh
             # - name: Login to Azure
             #   uses: azure/login@v1.1
             #   with:
