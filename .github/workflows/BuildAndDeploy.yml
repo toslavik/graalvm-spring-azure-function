@@ -34,7 +34,7 @@ jobs:
             - name: Build native image
               run: |
                 ls -a
-                cd ~HOME
+                cd ~home/usr/
                 ls -a
                 sudo -s
                 . build.sh
