@@ -18,7 +18,6 @@ jobs:
               uses: DeLaGuardo/setup-graalvm@3.0
               with:
                 graalvm-version: '21.0.0.java11'
-                working-directory: ./gvm
             - name: Cache local Maven repository
               uses: actions/cache@v2
               with:
@@ -34,6 +33,9 @@ jobs:
                 gu install native-image
             - name: Build native image
               run: |
+                ls -a
+                cd ~HOME
+                ls -a
                 sudo -s
                 . build.sh
             # - name: Login to Azure
