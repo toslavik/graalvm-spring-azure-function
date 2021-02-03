@@ -32,7 +32,7 @@ jobs:
                 echo 
                 gu install native-image
                 ls -a
-                cd $GITHUB_WORKSPACE
+                cd $HOME/work
                 ls -a
             - name: Build native image
               run: |
