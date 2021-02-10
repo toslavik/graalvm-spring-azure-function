@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZ_FUNCTION_NAME_APP: mcons    # set this to your application's name
+  AZ_FUNCTION_NAME_APP: tslavik    # set this to your application's name
 
 jobs:
   build-and-deploy:
